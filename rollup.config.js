@@ -6,6 +6,8 @@ import { terser } from 'rollup-plugin-terser';
 import postcss from 'rollup-plugin-postcss';
 import copy from "rollup-plugin-copy";
 import dev from 'rollup-plugin-dev'
+import autoPreprocess from 'svelte-preprocess'
+import { scss } from 'svelte-preprocess'
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -18,9 +20,6 @@ export default {
 		file: 'public/build/bundle.js'
 	},
 	plugins: [
-		dev({
-			proxy: "http://127.0.0.1"
-		}),
 		copy({
 			targets: [
 				{ src: ['theme/font/*'], dest: 'public/build/font' }
@@ -29,7 +28,8 @@ export default {
 		svelte({
 			// enable run-time checks when not in production
 			dev: !production,
-			emitCss: true
+			emitCss: true,
+			preprocess: autoPreprocess({ /* options */ })
 		}),
 
 		// If you have external dependencies installed from
@@ -56,8 +56,11 @@ export default {
 		}),
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
-		!production && serve(),
-
+		//!production && serve(),
+		!production && dev({
+			dirs:['public'],
+			proxy: { '/api/*': 'http://127.0.0.1:2233/' }
+		}),
 		// Watch the `public` directory and refresh the
 		// browser on changes when not in production
 		!production && livereload('public'),

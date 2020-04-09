@@ -7,6 +7,8 @@
     import DrawerHeader from "./Drawer/DrawerHeader.svelte";
     import DrawerList from "./Drawer/DrawerList.svelte";
     import IconButton from '@smui/icon-button';
+    import {SubjectStore} from "../Store/SubjectStore";
+    import { fade } from 'svelte/transition';
 
     let current = 'main';
     let drawer;
@@ -18,7 +20,7 @@
         drawerObj = value;
     });
 </script>
-
+<div transition:fade>
 <Drawer variant="modal" bind:this={drawer} bind:open={openDrawer}>
     <DrawerHeader header={drawerObj.header}/>
     <Content>
@@ -31,8 +33,9 @@
     <span slot="toolbar">
             <IconButton class="material-icons" aria-label="Download">file_download</IconButton>
             <IconButton class="material-icons" aria-label="Print this page">print</IconButton>
-            <IconButton class="material-icons" aria-label="Bookmark this page">bookmark</IconButton>
+            <IconButton class="material-icons" aria-label="Bookmark this page" on:click={()=>(SubjectStore.clear())}>bookmark</IconButton>
     </span>
     </TopBar>
     <svelte:component this={currentPage.component}/>
 </AppContent>
+</div>

@@ -1,21 +1,50 @@
 <script>
     import Textfield from '@smui/textfield'
-    import Paper, {Title, Subtitle, Content} from '@smui/paper';
+    import Paper, {Title, Subtitle} from '@smui/paper';
     import Button, {Group, GroupItem, Label, Icon} from '@smui/button';
-    import { fade } from 'svelte/transition';
+    import LinearProgress from '@smui/linear-progress';
+    import {fade} from 'svelte/transition';
+    import Card, {Content, PrimaryAction, Media, MediaContent, Actions, ActionButtons, ActionIcons} from '@smui/card';
+    import UserClient from "../Client/UserClient";
+    import {SubjectStore, Subject} from "../Store/SubjectStore";
+
     export let loginOrRegister = true;
     let userName = "";
     let password = "";
-    let userNameInvalid = false;
-    let passwordInvalid = false;
-    $: enableLogin = userName!==''&&password!=='';
+    let credentialInvalid = false;
+    let loading = false;
+    let loginPromise;
+
+    $: enableLogin = userName !== '' && password !== '';
+
+    $: if (userName !== "" || password !== "") credentialInvalid = false;
+
+    async function login() {
+        try {
+            loading = true;
+            let token = (await UserClient.getToken(userName, password)).data;
+            let subject = (await UserClient.getSubjectObj(token)).data;
+            let photo = (await UserClient.getSubjectPhoto(token)).data;
+            let obj = new Subject(token, subject, photo);
+            SubjectStore.persist(subject);
+        } catch (error) {
+            credentialInvalid = true;
+            userName = "";
+            password = "";
+        } finally {
+            loading = false;
+        }
+    }
 </script>
 <div class="container-fluid" in:fade>
     <div class="row">
         <div class="col align-self-start"></div>
         <div class="align-self-center col-3">
-            <Paper  elevation="5">
-                <div class="container-fluid">
+            <Card elevation="5" >
+                {#if loading}
+                            <LinearProgress indeterminate  style="border-top-left-radius:1em;border-top-right-radius:1em"/>
+                {/if}
+                <div class="container-fluid padded-container">
                     <div class="row">
                         <div class="col">
                             <Title>Login</Title>
@@ -26,9 +55,9 @@
                             <Textfield
                                     fullwidth
                                     type="text"
-                                    invalid={userNameInvalid}
+                                    invalid={credentialInvalid || loading}
                                     bind:value={userName}
-                                    label={userNameInvalid?'Wrong User Name':'User Name'}/>
+                                    label={credentialInvalid?'Wrong User Name':'User Name'}/>
                         </div>
                     </div>
                     <div class="row">
@@ -36,21 +65,21 @@
                             <Textfield
                                     fullwidth
                                     type="password"
-                                    invalid={passwordInvalid}
+                                    invalid={credentialInvalid || loading}
                                     bind:value={password}
-                                    label={passwordInvalid?"Wrong Password":"Password"}/>
+                                    label={credentialInvalid?"Wrong Password":"Password"}/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <div  class="float-right">
-                                <Button variant="outlined" on:click={()=>loginOrRegister = false}><Label>Register</Label></Button>
-                                <Button variant="raised" disabled={passwordInvalid || userNameInvalid || !enableLogin}><Label>Login</Label></Button>
+                                <Button class="padded" variant="outlined" on:click={()=>loginOrRegister = false}><Label>Register</Label></Button>
+                                <Button variant="raised" disabled={credentialInvalid  || loading || credentialInvalid || !enableLogin} on:click={()=>loginPromise = login()}><Label>Login</Label></Button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </Paper>
+            </Card>
         </div>
         <div class="col align-self-end"></div>
     </div>
@@ -58,5 +87,13 @@
 <style>
     .float-right{
         float: right;
+    }
+
+    .padded-container{
+        padding: 1em;
+    }
+
+    .cloaked{
+        visibility: hidden
     }
 </style>
