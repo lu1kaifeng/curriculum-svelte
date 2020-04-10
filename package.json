@@ -22,6 +22,8 @@
     "svelte-preprocess": "^3.7.1"
   },
   "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@material/layout-grid": "^5.1.0",
     "@smui/drawer": "latest",
     "@smui/icon-button": "latest",
     "@smui/list": "latest",

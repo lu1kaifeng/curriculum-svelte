@@ -12,7 +12,6 @@
         </Section>
         <Section align="end" toolbar>
             <slot name="toolbar"/>
-
         </Section>
     </Row>
 </TopAppBar>

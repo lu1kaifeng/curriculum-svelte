@@ -8,7 +8,8 @@
     import DrawerList from "./Drawer/DrawerList.svelte";
     import IconButton from '@smui/icon-button';
     import {SubjectStore} from "../Store/SubjectStore";
-    import { fade } from 'svelte/transition';
+    import {fade} from 'svelte/transition';
+    import CircularAvatar from "../UI/CircularAvatar.svelte";
 
     let current = 'main';
     let drawer;
@@ -30,11 +31,9 @@
 <Scrim />
 <AppContent>
     <TopBar bind:openDrawer={openDrawer} text={currentPage.text}>
-    <span slot="toolbar">
-            <IconButton class="material-icons" aria-label="Download">file_download</IconButton>
-            <IconButton class="material-icons" aria-label="Print this page">print</IconButton>
-            <IconButton class="material-icons" aria-label="Bookmark this page" on:click={()=>(SubjectStore.clear())}>bookmark</IconButton>
-    </span>
+    <div class="float-right" slot="toolbar">
+        <CircularAvatar/>
+    </div>
     </TopBar>
     <svelte:component this={currentPage.component}/>
 </AppContent>

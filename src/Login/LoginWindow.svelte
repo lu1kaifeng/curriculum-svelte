@@ -6,7 +6,8 @@
     import {fade} from 'svelte/transition';
     import Card, {Content, PrimaryAction, Media, MediaContent, Actions, ActionButtons, ActionIcons} from '@smui/card';
     import UserClient from "../Client/UserClient";
-    import {SubjectStore, Subject} from "../Store/SubjectStore";
+    import {SubjectStore} from "../Store/SubjectStore";
+    import {Subject} from "../Store/model";
 
     export let loginOrRegister = true;
     let userName = "";
@@ -24,9 +25,9 @@
             loading = true;
             let token = (await UserClient.getToken(userName, password)).data;
             let subject = (await UserClient.getSubjectObj(token)).data;
-            let photo = (await UserClient.getSubjectPhoto(token)).data;
+            let photo = (await UserClient.getSubjectPhoto(token)).data.photoBase64;
             let obj = new Subject(token, subject, photo);
-            SubjectStore.persist(subject);
+            SubjectStore.persist(obj);
         } catch (error) {
             credentialInvalid = true;
             userName = "";
@@ -85,9 +86,6 @@
     </div>
 </div>
 <style>
-    .float-right{
-        float: right;
-    }
 
     .padded-container{
         padding: 1em;

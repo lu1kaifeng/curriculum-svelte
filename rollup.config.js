@@ -29,7 +29,24 @@ export default {
 			// enable run-time checks when not in production
 			dev: !production,
 			emitCss: true,
-			preprocess: autoPreprocess({ /* options */ })
+			preprocess: autoPreprocess({
+				babel: {
+					presets: [
+						[
+							'@babel/preset-env',
+							{
+								loose: true,
+								// No need for babel to resolve modules
+								modules: false,
+								targets: {
+									// ! Very important. Target es6+
+									esmodules: true,
+								},
+							},
+						],
+					],
+				}
+			})
 		}),
 
 		// If you have external dependencies installed from
