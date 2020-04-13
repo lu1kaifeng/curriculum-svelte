@@ -48,3 +48,10 @@ export class Subject{
         window.localStorage.removeItem("Subject");
     }
 }
+
+export class Intent{
+    constructor(activity,param = null) {
+        this.activity = activity;
+        this.param = param;
+    }
+}

@@ -9,3 +9,12 @@
 .float-right{
   float: right;
 }
+
+.padded{
+  padding: 1em;
+}
+
+.fill-parent{
+  display: flex;
+  flex-direction: column;
+}
