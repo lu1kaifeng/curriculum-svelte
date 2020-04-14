@@ -10,19 +10,14 @@ export default class UserClient{
         })
     }
 
-    static getSubjectObj(token){
+    static getSubjectObj(){
         return Axios.get('/subject/info',{
-            headers:{
-                "x-api-key":token
-            }
+
         })
     }
 
-    static getSubjectPhoto(token){
+    static getSubjectPhoto(){
         return Axios.get('/subject/photo',{
-            headers:{
-                "x-api-key":token
-            }
         })
     }
 }

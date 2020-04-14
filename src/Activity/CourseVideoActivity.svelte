@@ -9,14 +9,14 @@
     import {onMount} from 'svelte';
     import VideoPlayer from "../UI/VideoPlayer.svelte";
     import PlayList from "../UI/PlayList.svelte";
+    import {mpdUrlFromVidObj} from '../Client/VideoUrlUtil'
 
     export let param = new CourseVideoParam();
     let video;
     let player;
-    let src = '/dash/bullshit2/h264.mpd';
     let courseList = param.course.courseVideo;
     let selected = courseList[0];
-    $: src = '/dash/' + selected.title + '/h264.mpd';
+    $: src = mpdUrlFromVidObj(selected);
 </script>
 
 <div in:fade>

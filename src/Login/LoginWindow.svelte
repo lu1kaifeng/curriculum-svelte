@@ -24,9 +24,11 @@
         try {
             loading = true;
             let token = (await UserClient.getToken(userName, password)).data;
-            let subject = (await UserClient.getSubjectObj(token)).data;
-            let photo = (await UserClient.getSubjectPhoto(token)).data.photoBase64;
-            let obj = new Subject(token, subject, photo);
+            let obj = new Subject(token, null, null);
+            SubjectStore.persist(obj);
+            let subject = (await UserClient.getSubjectObj()).data;
+            let photo = (await UserClient.getSubjectPhoto()).data.photoBase64;
+            obj = new Subject(token, subject, photo);
             SubjectStore.persist(obj);
         } catch (error) {
             credentialInvalid = true;

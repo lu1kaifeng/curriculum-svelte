@@ -1,36 +1,25 @@
 import Axios from "./AxiosInstance";
 
 export default class CourseApiClient{
-    static getAttendance(token){
+    static getAttendance(){
         return Axios.get('/course/attendance',{
-            headers:{
-                "x-api-key":token
-            }
+
         })
     }
-    static getAllCourse(token){
+    static getAllCourse(){
         return Axios.get('/course/all',{
-            headers:{
-                "x-api-key":token
-            }
         })
     }
-    static attendCourse(token,courseId){
+    static attendCourse(courseId){
         return Axios.post('/course/attendance',null,{
-            headers:{
-                "x-api-key":token
-            },
             params:{
                 "courseId":courseId
             }
         })
     }
 
-    static newCourse(token,name,teacherId,classroom,weekday,timeHr,timeMin,durationHr){
+    static newCourse(name,teacherId,classroom,weekday,timeHr,timeMin,durationHr){
         return Axios.post('/course',null,{
-            headers:{
-                "x-api-key":token
-            },
             params:{
                 "name":name,
                 "teacherId":teacherId,
@@ -43,19 +32,13 @@ export default class CourseApiClient{
         })
     }
 
-    static addVideo(token,courseId,title){
+    static addVideo(courseId,title){
         return Axios.post('/course/'+courseId+'/video/'+title,null,{
-            headers:{
-                "x-api-key":token
-            }
         })
     }
 
-    static delVideo(token,courseId,title){
+    static delVideo(courseId,title){
         return Axios.delete('/course/'+courseId+'/video/'+title,{
-            headers:{
-                "x-api-key":token
-            }
         })
     }
 }

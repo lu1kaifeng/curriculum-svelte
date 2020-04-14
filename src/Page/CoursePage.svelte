@@ -9,7 +9,7 @@
 
     async function loadCourse() {
         $MainActivityStore.loading = true;
-        let courses = (await CourseApiClient.getAllCourse($SubjectStore.token)).data;
+        let courses = (await CourseApiClient.getAllCourse()).data;
         $MainActivityStore.loading = false;
         return courses;
     }
