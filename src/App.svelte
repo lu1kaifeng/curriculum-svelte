@@ -14,9 +14,12 @@
 		<svelte:component this={$ActivityStore.activity} bind:param={$ActivityStore.param}/>
 	{/if}
 {/if}
-<style>
-	:global(body) {
+<style global>
+	body {
 		/* this will apply to <body> */
 		padding: 0;
+	}
+	*{
+		font-family: PingFang, serif
 	}
 </style>

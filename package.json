@@ -19,7 +19,8 @@
     "rollup-plugin-terser": "^5.1.2",
     "svelte": "^3.20.1",
     "svelte-material-ui": "^1.0.0-beta.20",
-    "svelte-preprocess": "^3.7.1"
+    "svelte-preprocess": "^3.7.1",
+    "video.js": "^7.7.5"
   },
   "dependencies": {
     "@babel/core": "^7.9.0",
@@ -34,7 +35,8 @@
     "material-icons": "^0.3.1",
     "node-sass": "^4.13.1",
     "popper.js": "^1.16.1",
+    "rx-player": "^3.19.0",
     "sirv-cli": "^0.4.4",
-    "svelte-spinner": "^2.0.2"
+    "videojs-contrib-dash": "^2.11.0"
   }
 }

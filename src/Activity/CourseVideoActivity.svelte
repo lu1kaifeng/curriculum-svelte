@@ -4,18 +4,40 @@
     import {startActivity as startMainActivity} from "../Nav/MainActivityParam";
     import {fade} from 'svelte/transition';
     import {CourseVideoParam} from "./CourseVideoParam";
-    export let param = new CourseVideoParam()
+    import RxPlayer from "rx-player";
+    import videojs from 'video.js'
+    import {onMount} from 'svelte';
+    import VideoPlayer from "../UI/VideoPlayer.svelte";
+    import PlayList from "../UI/PlayList.svelte";
+
+    export let param = new CourseVideoParam();
+    let video;
+    let player;
+    let src = '/dash/bullshit2/h264.mpd';
+    let courseList = param.course.courseVideo;
+    let selected = courseList[0];
+    $: src = '/dash/' + selected.title + '/h264.mpd';
 </script>
 
 <div in:fade>
     <TopAppBar variant="static">
         <Row>
             <Section>
-                <IconButton class="material-icons" on:click={startMainActivity}>menu</IconButton>
-                <Title>{param.course.name}</Title>
+                <IconButton class="material-icons" on:click={startMainActivity}>navigate_before</IconButton>
+                <Title class="ping-fang">{param.course.name}</Title>
             </Section>
             <Section align="end" toolbar>
             </Section>
         </Row>
     </TopAppBar>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col"><div class="d-flex justify-content-center padded">
+                <VideoPlayer {src}/>
+            </div></div>
+            <div class="col"><PlayList {courseList} bind:selected={selected}/></div>
+
+        </div>
+    </div>
 </div>
+

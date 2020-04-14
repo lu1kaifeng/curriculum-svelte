@@ -30,6 +30,7 @@ export default {
 			dev: !production,
 			emitCss: true,
 			preprocess: autoPreprocess({
+				scss: { includePaths: ['src', 'node_modules'] },
 				babel: {
 					presets: [
 						[
@@ -76,7 +77,10 @@ export default {
 		//!production && serve(),
 		!production && dev({
 			dirs:['public'],
-			proxy: { '/api/*': 'http://127.0.0.1:2233/' }
+			proxy: {
+				'/api/*': 'http://127.0.0.1:2233/',
+				'/dash/*':'http://10.0.0.233/'
+			}
 		}),
 		// Watch the `public` directory and refresh the
 		// browser on changes when not in production
