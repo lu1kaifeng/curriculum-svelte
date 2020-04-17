@@ -79,7 +79,8 @@ export default {
 			dirs:['public'],
 			proxy: {
 				'/api/*': 'http://127.0.0.1:2233/',
-				'/dash/*':'http://10.0.0.233/'
+				'/dash/*':'http://10.0.0.233/',
+				'/vid/':['http://10.0.0.233:8899/',{limit: '1024mb'}]
 			}
 		}),
 		// Watch the `public` directory and refresh the

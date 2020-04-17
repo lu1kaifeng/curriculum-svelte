@@ -17,13 +17,18 @@
     let courseList = param.course.courseVideo;
     let selected = courseList[0];
     $: src = mpdUrlFromVidObj(selected);
+
+    function leaveActivity(){
+        src=undefined;
+        startMainActivity();
+    }
 </script>
 
 <div in:fade>
     <TopAppBar variant="static">
         <Row>
             <Section>
-                <IconButton class="material-icons" on:click={startMainActivity}>navigate_before</IconButton>
+                <IconButton class="material-icons" on:click={leaveActivity}>navigate_before</IconButton>
                 <Title class="ping-fang">{param.course.name}</Title>
             </Section>
             <Section align="end" toolbar>

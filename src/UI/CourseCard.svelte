@@ -3,9 +3,10 @@
     import Fab, {Label, Icon} from '@smui/fab';
     import {createEventDispatcher} from 'svelte';
     import ThumbnailImageList from "./ThumbnailImageList.svelte";
+    import MenuSurface, {Anchor} from '@smui/menu-surface';
 
     const dispatch = createEventDispatcher();
-
+    let formSurface;
     export let course;
 </script>
 <div>
@@ -14,11 +15,10 @@
             <div style="color: #fff; width:280px;height:280px;position: absolute; top: 16px; left: 16px;">
                 <ThumbnailImageList vids={course.courseVideo}/>
             </div>
-            <div style="color: #0f0f0f; position: absolute; bottom: 16px; left: 16px;">
+            <div style="color: #0f0f0f; position: absolute; bottom: 16px; left: 16px;"  >
                 <h2 class="mdc-typography--headline6" style="margin: 0;">{course.name}</h2>
                 <h3 class="mdc-typography--subtitle2" style="margin: 0;">{course.teacher.name}</h3>
             </div>
-            <Fab style="position: absolute; bottom: -1.5em; right: -1.5em;height:3em;width:3em"><Icon class="material-icons">add</Icon></Fab>
         </Media>
 
     </Card>
