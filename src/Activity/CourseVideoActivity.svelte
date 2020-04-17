@@ -10,6 +10,7 @@
     import VideoPlayer from "../UI/VideoPlayer.svelte";
     import PlayList from "../UI/PlayList.svelte";
     import {mpdUrlFromVidObj} from '../Client/VideoUrlUtil'
+    import ConcentrationDash from "../UI/ConcentrationDash.svelte";
 
     export let param = new CourseVideoParam();
     let video;
@@ -18,8 +19,8 @@
     let selected = courseList[0];
     $: src = mpdUrlFromVidObj(selected);
 
-    function leaveActivity(){
-        src=undefined;
+    function leaveActivity() {
+        src = undefined;
         startMainActivity();
     }
 </script>
@@ -32,6 +33,7 @@
                 <Title class="ping-fang">{param.course.name}</Title>
             </Section>
             <Section align="end" toolbar>
+                <ConcentrationDash/>
             </Section>
         </Row>
     </TopAppBar>
