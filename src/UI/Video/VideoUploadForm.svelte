@@ -1,19 +1,19 @@
 <script>
     import {fade} from 'svelte/transition';
-    import {MainActivityStore} from '../Store/MainActivityStore'
+    import {MainActivityStore} from '../../Store/MainActivityStore'
     import Fab, {Icon} from '@smui/fab';
-    import CourseApiClient from "../Client/CourseApiClient";
+    import CourseApiClient from "../../Client/CourseApiClient";
     import Select, {Option} from '@smui/select';
     import MenuSurface, {Anchor} from '@smui/menu-surface';
-    import {SubjectStore} from "../Store/SubjectStore";
-    import CourseCard from "../UI/CourseCard.svelte";
-    import {CourseVideoParam} from "../Activity/CourseVideoParam";
-    import {startActivity as startVideoActivity} from "../Activity/CourseVideoParam"
+    import {SubjectStore} from "../../Store/SubjectStore";
+    import CourseCard from "../Main/CourseCard.svelte";
+    import {CourseVideoParam} from "../../Activity/CourseVideoParam";
+    import {startActivity as startVideoActivity} from "../../Activity/CourseVideoParam"
     import Textfield,{Input} from '@smui/textfield'
     import LinearProgress from '@smui/linear-progress';
     import { Sveltik } from 'sveltik'
     import Button, {Group, GroupItem, Label} from '@smui/button';
-    import {uploadVid} from "../Client/VideoApiClient";
+    import {uploadVid} from "../../Client/VideoApiClient";
     let courseId;
     let fileInput
     let title="";

@@ -7,10 +7,10 @@
     import RxPlayer from "rx-player";
     import videojs from 'video.js'
     import {onMount} from 'svelte';
-    import VideoPlayer from "../UI/VideoPlayer.svelte";
-    import PlayList from "../UI/PlayList.svelte";
+    import VideoPlayer from "../UI/Video/VideoPlayer.svelte";
+    import PlayList from "../UI/Video/PlayList.svelte";
     import {mpdUrlFromVidObj} from '../Script/VideoUrlUtil'
-    import ConcentrationDash from "../UI/ConcentrationDash.svelte";
+    import ConcentrationDash from "../UI/Video/ConcentrationDash.svelte";
 
     export let param = new CourseVideoParam();
     let video;

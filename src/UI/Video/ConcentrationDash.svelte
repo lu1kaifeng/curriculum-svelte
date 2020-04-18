@@ -1,10 +1,10 @@
 <script>
     import Button, {Group, GroupItem, Label, Icon} from '@smui/button';
-    import {sleep} from "../Script/Misc";
+    import {sleep} from "../../Script/Misc";
     import MenuSurface, {Anchor} from '@smui/menu-surface';
     import {onMount} from "svelte";
     import WebCam from "./WebCam.svelte";
-    import {concentrationDetect, Status} from "../Script/ConcentrationUtil";
+    import {concentrationDetect, Status} from "../../Script/ConcentrationUtil";
 
     let status = Status.OK;
     let test = () => status = !status

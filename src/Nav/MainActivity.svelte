@@ -9,7 +9,7 @@
     import IconButton from '@smui/icon-button';
     import {SubjectStore} from "../Store/SubjectStore";
     import {fade} from 'svelte/transition';
-    import CircularAvatar from "../UI/CircularAvatar.svelte";
+    import CircularAvatar from "../UI/Main/CircularAvatar.svelte";
     import LinearProgress from '@smui/linear-progress';
 
     let current = 'main';

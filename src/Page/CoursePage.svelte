@@ -7,11 +7,11 @@
     import MenuSurface, {Anchor} from '@smui/menu-surface';
     import LinearProgress from '@smui/linear-progress';
     import {SubjectStore} from "../Store/SubjectStore";
-    import CourseCard from "../UI/CourseCard.svelte";
+    import CourseCard from "../UI/Main/CourseCard.svelte";
     import {CourseVideoParam} from "../Activity/CourseVideoParam";
     import Dialog, {Title, Content, Actions} from '@smui/dialog';
     import {startActivity as startVideoActivity} from "../Activity/CourseVideoParam"
-    import VideoUploadForm from "../UI/VideoUploadForm.svelte";
+    import VideoUploadForm from "../UI/Video/VideoUploadForm.svelte";
 
     let formSurface;
     let dialog;

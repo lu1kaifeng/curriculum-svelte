@@ -21,9 +21,9 @@
     import Fab, {Icon} from '@smui/fab';
     import MenuSurface, {Anchor} from '@smui/menu-surface';
     import List, {Group, Item, Graphic, Meta, Label, Separator, Subheader, Text, PrimaryText, SecondaryText} from '@smui/list';
-    import {SubjectStore} from '../Store/SubjectStore'
-    import {AvatarStore} from '../Store/AvatarStore'
-    import {CustomActionListItem} from '../Store/model'
+    import {SubjectStore} from '../../Store/SubjectStore'
+    import {AvatarStore} from '../../Store/AvatarStore'
+    import {CustomActionListItem} from '../../Store/model'
     let formSurface;
 </script>
 <style>
