@@ -1,6 +1,6 @@
 <script>
     import ImageList, {Item, ImageAspectContainer, Image, Supporting, Label} from '@smui/image-list';
-    import {thumbnailFromVidObj} from '../Client/VideoUrlUtil'
+    import {thumbnailFromVidObj} from '../Script/VideoUrlUtil'
     export let vids;
 </script>
 <ImageList class="my-image-list-masonry" masonry>

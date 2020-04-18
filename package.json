@@ -31,6 +31,7 @@
     "@smui/top-app-bar": "latest",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
+    "jpeg-camera-es6": "^1.0.12",
     "jquery": "^3.4.1",
     "material-icons": "^0.3.1",
     "node-sass": "^4.13.1",
@@ -38,6 +39,7 @@
     "rx-player": "^3.19.0",
     "sirv-cli": "^0.4.4",
     "sveltik": "^0.1.11",
-    "videojs-contrib-dash": "^2.11.0"
+    "videojs-contrib-dash": "^2.11.0",
+    "webcamjs": "^1.0.26"
   }
 }

@@ -9,7 +9,7 @@
     import {onMount} from 'svelte';
     import VideoPlayer from "../UI/VideoPlayer.svelte";
     import PlayList from "../UI/PlayList.svelte";
-    import {mpdUrlFromVidObj} from '../Client/VideoUrlUtil'
+    import {mpdUrlFromVidObj} from '../Script/VideoUrlUtil'
     import ConcentrationDash from "../UI/ConcentrationDash.svelte";
 
     export let param = new CourseVideoParam();
