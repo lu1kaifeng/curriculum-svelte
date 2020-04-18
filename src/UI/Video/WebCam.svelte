@@ -1,5 +1,5 @@
 <script>
-    import {onMount} from "svelte";
+    import {onMount,onDestroy} from "svelte";
     import { createEventDispatcher } from 'svelte';
     const dispatch = createEventDispatcher();
 
@@ -7,12 +7,18 @@
     export let height = 320;
     let video;
     let canvas;
+    let snapEvent;
     onMount(async ()=>{
         video.srcObject = (await navigator.mediaDevices.getUserMedia({video: true, audio: false}));
         video.play();
-        setInterval(()=>{
+        snapEvent = setInterval(()=>{
             dispatch('snap',snap())
         },5000)
+    })
+
+    onDestroy(()=>{
+        video.srcObject = undefined;
+        clearInterval(snapEvent)
     })
 
     let snap = ()=> {

@@ -1,7 +1,9 @@
 <List class="demo-list" twoLine avatarList singleSelection>
     {#each courseList as course}
         <Item on:SMUI:action={() => selected = course} selected={selected === course}>
-            <Graphic style="background-image: url(https://via.placeholder.com/40x40.png?text={course.title.split(' ').map(val => val.substring(0, 1)).join('')});" />
+            <Graphic>
+                <img src={thumbnailFromVidObj(course)}>
+            </Graphic>
             <Text>
                 <PrimaryText>{course.title}</PrimaryText>
                 <SecondaryText>{course.webId}</SecondaryText>
@@ -12,6 +14,14 @@
 </List>
 <script>
     import List, {Group, Item, Graphic, Meta, Label, Separator, Subheader, Text, PrimaryText, SecondaryText} from '@smui/list';
+    import {thumbnailFromVidObj} from "../../Script/VideoUrlUtil";
     export let courseList;
     export let selected;
 </script>
+<style>
+    img{
+        border-radius: 100%;
+        height: 3em;
+        width: 3em;
+    }
+</style>
