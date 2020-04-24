@@ -10,6 +10,7 @@
     "@babel/preset-env": "^7.9.5",
     "@rollup/plugin-commonjs": "^11.0.0",
     "@rollup/plugin-node-resolve": "^7.0.0",
+    "@rollup/plugin-typescript": "^4.1.1",
     "rollup": "^1.20.0",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-dev": "^1.1.1",
@@ -24,6 +25,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.9.0",
+    "@ffmpeg/ffmpeg": "^0.7.0",
     "@material/layout-grid": "^5.1.0",
     "@smui/drawer": "latest",
     "@smui/icon-button": "latest",
@@ -36,9 +38,13 @@
     "material-icons": "^0.3.1",
     "node-sass": "^4.13.1",
     "popper.js": "^1.16.1",
+    "protobufjs": "^6.9.0",
     "rx-player": "^3.19.0",
+    "sass": "^1.26.3",
     "sirv-cli": "^0.4.4",
     "sveltik": "^0.1.11",
+    "tslib": "^1.11.1",
+    "typescript": "^3.8.3",
     "videojs-contrib-dash": "^2.11.0",
     "webcamjs": "^1.0.26"
   }

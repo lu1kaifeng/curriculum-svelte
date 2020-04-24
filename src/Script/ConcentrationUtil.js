@@ -2,7 +2,7 @@ import FaceApiClient from "../Client/FaceApiClient";
 import {SubjectStore} from "../Store/SubjectStore";
 let subjectPhoto;
 SubjectStore.subscribe(value=>{
-    subjectPhoto = value.photo
+    if(value !== null) subjectPhoto = value.photo
 });
 
 export async function concentrationDetect(base64) {

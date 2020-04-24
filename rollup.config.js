@@ -8,6 +8,7 @@ import copy from "rollup-plugin-copy";
 import dev from 'rollup-plugin-dev'
 import autoPreprocess from 'svelte-preprocess'
 import { scss } from 'svelte-preprocess'
+import typescript from "@rollup/plugin-typescript";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -31,6 +32,9 @@ export default {
 			emitCss: true,
 			preprocess: autoPreprocess({
 				scss: { includePaths: ['src', 'node_modules'] },
+				typescript:{
+					tsconfigFile:'./tsconfig.json'
+				},
 				babel: {
 					presets: [
 						[
@@ -72,6 +76,7 @@ export default {
 				}]
 			]
 		}),
+		typescript(),
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
 		//!production && serve(),

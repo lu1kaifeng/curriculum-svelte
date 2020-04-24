@@ -1,0 +1,7 @@
+syntax = "proto3";
+message Movie{
+    string token = 1;
+    bytes res360 = 2;
+    bytes res720 = 3;
+    bytes res1080 = 4;
+}
