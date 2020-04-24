@@ -18,9 +18,11 @@
     "rollup-plugin-postcss": "^2.5.0",
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^5.1.2",
+    "rollup-plugin-typescript2": "^0.27.0",
     "svelte": "^3.20.1",
     "svelte-material-ui": "^1.0.0-beta.20",
     "svelte-preprocess": "^3.7.1",
+    "typescript": "^3.8.3",
     "video.js": "^7.7.5"
   },
   "dependencies": {
@@ -44,7 +46,6 @@
     "sirv-cli": "^0.4.4",
     "sveltik": "^0.1.11",
     "tslib": "^1.11.1",
-    "typescript": "^3.8.3",
     "videojs-contrib-dash": "^2.11.0",
     "webcamjs": "^1.0.26"
   }

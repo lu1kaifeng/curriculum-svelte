@@ -8,7 +8,7 @@ import copy from "rollup-plugin-copy";
 import dev from 'rollup-plugin-dev'
 import autoPreprocess from 'svelte-preprocess'
 import { scss } from 'svelte-preprocess'
-import typescript from "@rollup/plugin-typescript";
+import typescript from "rollup-plugin-typescript2";
 
 const production = !process.env.ROLLUP_WATCH;
 
