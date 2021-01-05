@@ -33,7 +33,7 @@
     "@smui/icon-button": "latest",
     "@smui/list": "latest",
     "@smui/top-app-bar": "latest",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "jpeg-camera-es6": "^1.0.12",
     "jquery": "^3.4.1",
