@@ -23,7 +23,7 @@
     "svelte-material-ui": "^1.0.0-beta.20",
     "svelte-preprocess": "^3.7.1",
     "typescript": "^3.8.3",
-    "video.js": "^7.7.5"
+    "video.js": "^7.20.3"
   },
   "dependencies": {
     "@babel/core": "^7.9.0",
